@@ -5,5 +5,5 @@
 # 1. Build
 # 2. Test
 # 3. Deploy
-# 4. Monitoring
-# to use Telegram for notification 
+# 4. Monitoring using UpTimeRobot
+# And to use Telegram for notification 
