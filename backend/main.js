@@ -11,4 +11,4 @@ app.use(bodyparser.json());
 //app.use(seller.router);
 app.use(customer.router);
 
-app.listen(3000);
+app.listen(8080);
