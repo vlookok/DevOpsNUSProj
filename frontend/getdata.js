@@ -1,3 +1,4 @@
+const apiip = "http://localhost:3000/"
 function getbalanceFromServer(uid, pwd) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -8,7 +9,7 @@ function getbalanceFromServer(uid, pwd) {
     // redirect: "follow",
   };
 
-  fetch("http://localhost:3000/api/getbal?user_id="+uid+"&password="+pwd, requestOptions)
+  fetch(apiip+"api/getbal?user_id="+uid+"&password="+pwd, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       var text = "<ul>";
@@ -35,7 +36,7 @@ function authenUser() {
     headers: myHeaders,
     body: raw,
   };
-  fetch("http://localhost:3000/api/auth", requestOptions)
+  fetch(apiip+"api/auth", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       var text = "<ul>";
@@ -70,7 +71,7 @@ function transferAcct() {
     body: raw,
   };
 
-  fetch("http://localhost:3000/api/trfbal", requestOptions)
+  fetch(apiip+"api/trfbal", requestOptions)
     .then((response) => response.text())
     .then((result) => $(".mypanel").html(result))
     .catch((error) => $(".mypanel").html(error));
@@ -93,7 +94,7 @@ function changePwd() {
     body: raw,
   };
 
-  fetch("http://localhost:3000/api/chgpwd", requestOptions)
+  fetch(apiip+"api/chgpwd", requestOptions)
     .then((response) => response.text())
     .then((result) => $(".mypanel").html(result))
     .catch((error) => $(".mypanel").html(error));
