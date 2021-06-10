@@ -8,6 +8,7 @@ ENV USER root
 RUN apt-get update
 RUN apt-get install -y nodejs npm
 RUN node --version
+WORKDIR /home/user
 RUN npm install -g npm@latest
 RUN npm install -g express-generator
 RUN npm install sqlite3
