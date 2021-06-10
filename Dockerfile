@@ -1,11 +1,11 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 MAINTAINER vlookok@gmail.com
 EXPOSE 8080
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Singapore
 
 RUN apt-get update
-RUN apt-get install nodejs=14.17.0 -y
+RUN apt-get install nodejs -y
 ENV USER root
 RUN node --version
 RUN npm -v
