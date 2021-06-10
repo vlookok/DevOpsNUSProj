@@ -18,7 +18,7 @@ jobs:
           message: The ${{ github.event_name }} event triggered commit step. The automation of build/publish/deploy will start.   
     
     build:
-      name: Build and Publish
+      name: Test Build and Publish
       runs-on: ubuntu-latest
       strategy:
         matrix:
@@ -37,10 +37,10 @@ jobs:
         working-directory: backend
           
     deploy:
-      name: Setup Gcloud Account
+      name: Deploy to Gcloud 
       runs-on: ubuntu-latest
       steps:
-      - name: Login
+      - name: Google Login
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           service_account_email: ${{ secrets.GCP_EMAIL }}
@@ -50,7 +50,7 @@ jobs:
       - name: Configure Docker
         run: gcloud auth configure-docker --quiet
 
-      - name: Build & Publish
+      - name: Build & Publish Docker
         run: |
           gcloud config set project ${{ secrets.GCP_PROJECT }}
           gcloud builds submit --tag gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }}
