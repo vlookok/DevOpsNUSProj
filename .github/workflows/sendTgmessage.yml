@@ -20,9 +20,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: send custom message
+    - name: send first message
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: The ${{ github.event_name }} event triggered final step. echo This event is a pull request that had an assignee removed.
+        message: The ${{ github.event_name }} event triggered commit step. The automation of build/publish/deploy will start.
+
+    - name: send final message
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: Final step of build/publish/deploy to Google Cloud Run.
