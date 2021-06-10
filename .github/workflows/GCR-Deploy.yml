@@ -77,8 +77,8 @@ jobs:
         
       - name: Deploy Docker image
         run: |
-          gcloud run deploy ${{ secrets.GCP_PROJECT }} --image gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }} \
-          --region us-central1 \
-          --platform managed \
+          gcloud run deploy ${{ secrets.GCP_PROJECT }} --image=gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }} \
+          --region=us-central1 \
+          --platform=managed \
           --allow-unauthenticated \
-          --memory 256M
+          --memory=256Mi
