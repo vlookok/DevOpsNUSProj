@@ -2,8 +2,8 @@ name: DockerCloudRun
 
 on:
   push:
-    branches: [ master ]
-  
+    branches: [ main ]
+    
 jobs:
     notification:
       runs-on: ubuntu-latest
