@@ -10,7 +10,6 @@ ENV USER root
 RUN node --version
 RUN npm install -g npm@latest
 RUN npm install -g express-generator
-RUN npm install sqlite3 --save
 RUN useradd -ms /bin/bash user
 COPY backend/main.js /home/user/main.js
 COPY backend/database.js /home/user/database.js
