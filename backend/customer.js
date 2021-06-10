@@ -5,6 +5,18 @@ const express = require("express");
 // Allows us to define a mapping from the URI to a function
 router = express.Router();
 
+//Test alive
+router.get("/api/test", (request, response) => {
+  database.db.get(`SELECT firstName FROM users where userId = 1`,
+  (errors, results) => {
+    if (errors) {
+      response.status(402).send("System Error, DB Error");
+    } else {
+            response.status(201).send("System OK");
+    }
+  });
+});
+
 // Authenticate user 
 router.post("/api/auth", (request, response) => {
   database.db.get(`SELECT firstName FROM users where userId = ${request.body.user_id}`,
