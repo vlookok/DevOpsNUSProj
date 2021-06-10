@@ -5,8 +5,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Singapore
 
 RUN apt-get update
-RUN apt-get install -y nodejs npm@latest -g
+RUN apt-get install -y nodejs 
 ENV USER root
+RUN npm install -g npm@latest
 RUN npm install -g express-generator
 RUN npm install express --save
 RUN npm install body-parser --save
