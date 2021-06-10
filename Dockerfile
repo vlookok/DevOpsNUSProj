@@ -7,7 +7,7 @@ ENV TZ=Asia/Singapore
 RUN apt-get update
 RUN apt-get install -y nodejs 
 ENV USER root
-RUN nvm install stable
+RUN nvm install v11.15.0
 RUN npm install -g npm@latest
 RUN npm install --save express
 RUN npm install -g express-generator
