@@ -9,9 +9,7 @@ RUN apt-get install -y nodejs npm
 ENV USER root
 RUN node --version
 RUN npm install -g npm@latest
-RUN npm install --save express
 RUN npm install -g express-generator
-RUN npm install express --save
 RUN npm install body-parser --save
 RUN npm install cors --save
 RUN npm install -g node-gyp --save
