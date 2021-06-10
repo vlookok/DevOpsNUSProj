@@ -16,6 +16,7 @@ RUN useradd -ms /bin/bash user
 COPY backend/main.js /home/user/main.js
 COPY backend/database.js /home/user/database.js
 COPY backend/customer.js /home/user/customer.js
+COPY backend/mysqllite.sqlite /home/user/mysqllite.sqlite
 COPY backend/start.sh /home/user/start.sh
 RUN chmod a+x /home/user/start.sh
 USER user
