@@ -11,4 +11,6 @@ app.use(bodyparser.json());
 //app.use(seller.router);
 app.use(customer.router);
 
-app.listen(8080);
+app.listen(8080, () => {
+ console.log("Server running on port 3000");
+});
