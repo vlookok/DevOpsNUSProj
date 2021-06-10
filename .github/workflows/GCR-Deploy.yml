@@ -1,0 +1,64 @@
+name: DockerCloudRun
+
+on:
+  push:
+    branches: [ master ]
+  
+  workflow_dispatch:
+  
+jobs:
+    notification:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Send First message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: The ${{ github.event_name }} event triggered commit step. The automation of build/publish/deploy will start.   
+    
+    build:
+      name: Build and Publish
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          node-version: [10.x, 12.x, 14.x, 15.x]
+      steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+        working-directory: backend
+      - run: npm run build --if-present
+        working-directory: backend
+          
+    deploy:
+      name: Setup Gcloud Account
+      runs-on: ubuntu-latest
+      steps:
+      - name: Login
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_email: ${{ secrets.GCP_EMAIL }}
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+          export_default_credentials: true
+
+      - name: Configure Docker
+        run: gcloud auth configure-docker --quiet
+
+      - name: Build & Publish
+        run: |
+          gcloud config set project ${{ secrets.GCP_PROJECT }}
+          gcloud builds submit --tag gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }}
+          gcloud config set run/region us-central1
+        
+      - name: Deploy Docker image
+        run: |
+          gcloud run deploy ${{ secrets.GCP_APPLICATION }} --image gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }} \
+          --platform managed \
+          --allow-unauthenticated \
+          --memory 256M
