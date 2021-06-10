@@ -8,9 +8,7 @@ RUN apt-get update
 RUN apt-get install nodejs -y
 ENV USER root
 RUN node --version
-RUN npm -v
 RUN npm install -g npm@latest
-RUN npm -v
 RUN npm install grps --save
 RUN npm install node-pre-gyp --save
 RUN npm install --save express
