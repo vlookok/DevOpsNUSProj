@@ -5,8 +5,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Singapore
 
 RUN apt-get update
-RUN apt-get install -y nodejs 
+RUN apt-get install nodejs 
 ENV USER root
+RUN node --version
+RUN npm --version
 RUN nvm install v11.15.0
 RUN npm install -g npm@latest
 RUN npm install grps --save
