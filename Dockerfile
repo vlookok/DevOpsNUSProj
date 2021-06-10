@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-LABEL vlookok@gmail.com
+MAINTAINER vlookok@gmail.com
 EXPOSE 8080
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Singapore
