@@ -11,6 +11,8 @@ RUN node --version
 WORKDIR /home/user
 RUN npm install -g npm@latest
 RUN npm install -g express-generator
+RUN npm install express --save
+RUN npm install cors --save
 RUN npm install sqlite3
 RUN useradd -ms /bin/bash user
 COPY backend/main.js /home/user/main.js
