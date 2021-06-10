@@ -5,7 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Singapore
 
 RUN apt-get update
-RUN apt-get install nodejs -y
+RUN apt-get install -y nodejs npm
 ENV USER root
 RUN node --version
 RUN npm install -g npm@latest
