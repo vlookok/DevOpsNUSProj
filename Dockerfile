@@ -5,14 +5,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Singapore
 
 RUN apt-get update
-RUN apt-get install nodejs -y
+RUN apt-get install nodejs=14.17.0 -y
 ENV USER root
 RUN node --version
-RUN nvm install 14
-RUN nvm use 14
-RUN node --version
+RUN npm -v
 RUN npm install -g npm@latest
-RUN npm --version
+RUN npm -v
 RUN npm install grps --save
 RUN npm install node-pre-gyp --save
 RUN npm install --save express
