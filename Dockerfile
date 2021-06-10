@@ -11,6 +11,7 @@ RUN npm install -g express-generator
 RUN npm install express --save
 RUN npm install body-parser --save
 RUN npm install cors --save
+RUN npm install -g node-gyp --save
 RUN npm install sqlite3 --save
 RUN useradd -ms /bin/bash user
 COPY backend/main.js /home/user/main.js
