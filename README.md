@@ -11,7 +11,6 @@ The functions to show are:
 6. Push the image to Google Cloud Run
 7. Deploy the docker image at Google Cloud Run
 8. Run the docker image
-9. Send a Telegram notificaiton of complete of deployment to Google Cloud Run
 
 Steps:
 1. Change the existing backend program using Azure MySQL server to SQLite & Test the backend program
