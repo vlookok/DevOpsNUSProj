@@ -1,6 +1,6 @@
 # This is project to test out the DevOps in GitHub
 
-# Planning to use a simple Node.js (express) backend program that connect to sqllite instead of Azure MySQL for this DevOps
+# Planning to use a simple Node.js (express) backend program that connect to sqlite instead of Azure MySQL for this DevOps
 
 The functions to show are:
 1. Commit changes to code
