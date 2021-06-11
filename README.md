@@ -23,3 +23,13 @@ Steps:
 8. Generate a key.json with the credential
 9. Setup Github secrets environment - GCP_PROJECT, GCP_APPLICATION, GCP_EMAIL, GCP_CREDENTIALS
 10. Create Github Actrion Workflow
+
+GitHub Action Workflow successfully completed:
+![2021-06-11 12_03_36-Update Dockerfile · vlookok_DevOpsNUSProj@0344e4a](https://user-images.githubusercontent.com/79569990/121629104-1bd48e80-caad-11eb-927d-34d4f54e4b22.jpg)
+
+Docker image successfully deployed to Google Cloud Run:
+![image](https://user-images.githubusercontent.com/79569990/121629266-6524de00-caad-11eb-8f7e-4e9482b7373f.png)
+
+URL to test the app deployed to Google Cloud Run:
+1. https://nusdevops1-4zf7yfmiwq-uc.a.run.app/api/test
+2. https://nusdevops1-4zf7yfmiwq-uc.a.run.app/api/getbal?user_id=1&password=123450
